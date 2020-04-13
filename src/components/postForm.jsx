@@ -23,12 +23,12 @@ class PostForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
-          <Label for="title">Title</Label>
+          <label for="title">Title</label>
           <br />
           <input type="text" name="title" onChange={this.handleOnChange} />
           <br />
           <br />
-          <Label for="body">Body</Label>
+          <label for="body">Body</label>
           <br />
           <textarea name="body" onChange={this.handleOnChange} />
           <br />

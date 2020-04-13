@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import connect from "react-redux";
+import { connect } from "react-redux";
 import { fetchPosts } from "../redux/actions/postActions";
 import PropTypes from "prop-types";
 
@@ -41,4 +41,4 @@ const mapStateToProps = (state) => ({
   newPOst: state.posts.item,
 });
 
-export default connect(mapStateToProps, fetchPosts)(Posts);
+export default connect(mapStateToProps, { fetchPosts })(Posts);
