@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { createPost } from "../redux/actions/postActions";
 
 class PostForm extends Component {
   state = {
@@ -17,27 +20,33 @@ class PostForm extends Component {
       title: this.state.title,
       body: this.state.body,
     };
+
+    this.props.createPost({ post });
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
-          <label for="title">Title</label>
+          <label>Title</label>
           <br />
           <input type="text" name="title" onChange={this.handleOnChange} />
           <br />
           <br />
-          <label for="body">Body</label>
+          <label>Body</label>
           <br />
           <textarea name="body" onChange={this.handleOnChange} />
           <br />
           <br />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Save Post" />
         </form>
       </div>
     );
   }
 }
 
-export default PostForm;
+PostForm.propTypes = {
+  createPost: PropTypes.func.isRequired,
+};
+
+export default connect(null, { createPost })(PostForm);
